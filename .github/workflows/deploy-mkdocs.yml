@@ -1,0 +1,45 @@
+name: Deploy MkDocs site
+
+on:
+  push:
+    branches: [ main ]   # メインブランチ名が別ならここを変更
+  workflow_dispatch:      # 手動実行もできるようにしておく
+
+permissions:
+  contents: write         # gh-pages ブランチへの push に必要
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./docs   # ここで 'run:' のカレントディレクトリを指定
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install mkdocs mkdocs-material
+          fi
+
+      # 必須ではないが、ローカルと同じようにビルドできるか確認
+      - name: Build site
+        run: mkdocs build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/site    # mkdocs build の出力先（デフォルト: site）
