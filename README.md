@@ -3,6 +3,10 @@
 </p>
 <p align="left">
 
+## 概要
+
+[DSPy 日本語ドキュメント](https://atynagano.github.io/dspy-japanese/)  
+[DSPy](https://dspy.ai/)の非公式日本語訳です。[pfnet/plamo-2-translate](https://huggingface.co/pfnet/plamo-2-translate)を使用しています。
 
 ## DSPy: _Programming_—not prompting—Foundation Models
 
