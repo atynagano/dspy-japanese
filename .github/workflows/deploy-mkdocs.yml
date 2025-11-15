@@ -42,4 +42,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site    # mkdocs build の出力先（デフォルト: site）
+          publish_dir: ./docs/site    # mkdocs build の出力先（デフォルト: site）
