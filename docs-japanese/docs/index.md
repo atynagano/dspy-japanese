@@ -8,7 +8,7 @@ hide:
 
 ![DSPy](static/img/dspy_logo.png){ width="200", align=left }
 
-# _プログラミング_—プロンプト作成ではなく_LMs_の_プログラミング_
+# 言語モデルを「プロンプティング」するのではなく、「プログラミング」する
 
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/dspy?period=monthly)](https://pepy.tech/projects/dspy)
 
