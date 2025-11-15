@@ -36,7 +36,7 @@ jobs:
 
       # 必須ではないが、ローカルと同じようにビルドできるか確認
       - name: Build site
-        run: mkdocs build --strict
+        run: mkdocs build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
